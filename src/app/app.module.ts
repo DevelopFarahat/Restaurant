@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PizzaCategoryComponent } from './pizza-category/pizza-category.component';
+
 import {HttpClientModule} from "@angular/common/http";
 import { PastaCategoryComponent } from './pasta-category/pasta-category.component';
 import { SaladCategoryComponent } from './salad-category/salad-category.component';
@@ -24,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReserveTableComponent } from './reserve-table/reserve-table.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ClientThanksComponent } from './client-thanks/client-thanks.component';
+import { PizzaCategoryComponent } from './pizza-category/pizza-category.component';
 
 
 
