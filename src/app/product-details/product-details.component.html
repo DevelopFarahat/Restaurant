@@ -1,0 +1,29 @@
+
+<div class="details-main-container">
+    <div class="card dish-detail-card" style="width: 18rem;" >
+
+        <div class="dish-details-image-container">
+          <img src="{{productDetails.recipe.image_url}}" class="card-img-top" alt="...">
+        </div>
+        
+        <div class="card-body card-body-section">
+          <h5 class="card-title">{{productDetails.recipe.title}}</h5>
+       
+        
+        <span>ingredient</span>
+        <ul class="list-of-ingredient">
+          <li class="list-group-item" class="list-group list-group-flush list-of-ingredient" *ngFor="let ingredient of productDetails.recipe.ingredients; let i = index" id="ingredient{{i}}">{{ingredient}}</li>
+        </ul>
+      </div>
+      <div>
+        <button type="button" class="btn" style="background-color:#e32207; color:#FFFFFF;">Back</button>
+    </div>
+      </div>
+</div>
+
+
+
+
+<!--<ul *ngFor="let i of productDetails.recipe.ingredients ">
+    <li>{{i}}</li>
+</ul>-->

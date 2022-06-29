@@ -1,0 +1,95 @@
+<!--<div class="payment">-->
+    <div class="wrapper">
+        <h2>
+            Payments</h2> 
+            <form method="get"  [formGroup]="checkoutForm" novalidate>
+            <div class="logos-group">
+                <img src="/assets/Images/visa.png" alt="visa" class="visa">
+                <img src="/assets/Images/paypal.png" alt="paypal" class="paypal">
+            </div>
+            <h4>
+                Account</h4>
+            <div class="input-group">
+                <div class="input-box">
+                    <input type="text" placeholder="Full Name" required class="name form-control"
+                        [class.is-invalid]="fullname?.invalid &&fullname?.touched" formControlName="fullname">
+                    <i class="fa fa-user icon"></i>
+                    <div *ngIf="fullname?.invalid &&fullname?.touched">
+                        <small class="text-danger" *ngIf="fullname?.errors?.['required']">FullName is required</small>
+                        <small class="text-danger" *ngIf="fullname?.errors?.['pattern']"> Fullname Must Only
+                            Contains Characters separated by spaces</small>
+                    </div>
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="input-box">
+                    <input type="email" placeholder="Email Adress" required class="name form-control"
+                        [class.is-invalid]="email?.invalid &&email?.touched" formControlName="email">
+                    <i class="fa fa-envelope icon"></i>
+                    <div *ngIf="email?.invalid &&email?.touched">
+                        <small class="text-danger" *ngIf="email?.errors?.['required']">Email Is Required</small>
+                        <small class="text-danger" *ngIf="email?.errors?.['pattern']">Email Must containing characters digits and (@)</small>
+                    </div>
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="input-box">
+                    <h4>
+                        Payment Details</h4>
+                    <input type="radio" name="pay" id="bc1" checked class="radio">
+                    <label for="bc1"><span class="credit-card"> <i class="fa-brands fa-cc-visa"></i> Credit
+                            Card</span></label>
+                    <input type="radio" name="pay" id="bc2" class="radio">
+                    <label for="bc2"><span class="paypal"><i class="fa-brands fa-cc-paypal"></i> Paypal</span></label>
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="input-box">
+                    <input type="tel" placeholder="Card Number" required class="name form-control"
+                        [class.is-invalid]="cardNumber?.invalid &&cardNumber?.touched" formControlName="cardNumber">
+                    <i class="fa fa-credit-card icon"></i>
+                    <div *ngIf="cardNumber?.invalid &&cardNumber?.touched">
+                        <small class="text-danger" *ngIf="cardNumber?.errors?.['required']">Card Number Is
+                            Required</small>
+                        <small class="text-danger" *ngIf="cardNumber?.errors?.['pattern']">Card Number must
+                            be 16 digits</small>
+                    </div>
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="input-box">
+                    <input type="tel" placeholder="Card Name" required class="name form-control"
+                        [class.is-invalid]="cardName?.invalid &&cardName?.touched" formControlName="cardName">
+                    <i class="fa fa-credit-card icon"></i>
+                    <div *ngIf="cardName?.invalid &&cardName?.touched">
+                        <small class="text-danger" *ngIf="cardName?.errors?.['required']">Card Name Is Required</small>
+                        <small class="text-danger" *ngIf="cardName?.errors?.['pattern']">Card Name must not contain
+                            a number</small>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Card CVV" required class="name form-control"
+                        [class.is-invalid]="cardCvv?.invalid &&cardCvv?.touched" formControlName="cardCvv">
+                    <i class="fa fa-user icon"></i>
+                    <div *ngIf="cardCvv?.invalid &&cardCvv?.touched">
+                        <small class="text-danger" *ngIf="cardCvv?.errors?.['required']">Card CVV Is Required</small>
+                        <small class="text-danger" *ngIf="cardCvv?.errors?.['pattern']">Card CVV must be 3
+                            digits</small>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div class="input-group">
+                <div class="input-box">
+                    <button type="button" name="payment" [disabled]="checkoutForm.invalid"
+                        [class.btn-dark]="checkoutForm.invalid"
+                        [ngStyle]="{'cursor':checkoutForm.invalid?'not-allowed':'pointer','opacity':checkoutForm.invalid?'.3':'1'}" (click)="NavigateToClientThanks()">PAY
+                        NOW</button>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+<!--</div>-->

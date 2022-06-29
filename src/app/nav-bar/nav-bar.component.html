@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg  p-2">
+    
+    
+    <div class="collapse container navbar-collapse d-flex justify-content-between align-items-center" id="navbarSupportedContent">
+        <ul *ngIf="show" class="navbar-nav ">
+        <img src="../assets/Images/logo.png" alt="NotFound" width="70" height="70" class="mx-3">
+      <li class="nav-item ">
+          <a  class="nav-link" routerLink='home'>Home </a>
+      </li>
+      <li class="nav-item">
+          <a  class="nav-link" routerLink='cart'>My Order</a>
+      </li>
+      <li class="nav-item">
+          <a  class="nav-link" routerLink='reserveTable'>reserveTables</a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Category
+        </a>
+        <ul class="dropdown-menu  " aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" routerLink='pizza'>Pizza</a></li>
+          <li><a class="dropdown-item" routerLink='pasta'>pasta</a></li>
+          <li><a class="dropdown-item" routerLink='salad'>Salad</a></li>
+        </ul>
+      </li>
+
+      
+      
+        
+      
+    </ul>
+    <div class="side d-flex ml-auto pr-5 ">
+    
+          <ul class="navbar-nav ml-auto text-warning">
+              <li *ngIf="hide" class="nav-item active">
+                  <a  class="nav-link" routerLink="login">Login </a>
+              </li>
+              <li *ngIf="hide" class="nav-item active">
+                  <a  class="nav-link" routerLink="register">Register </a>
+              </li>
+              <li *ngIf="show" class="nav-item active">
+                  <a   class="nav-link logOut" (click)="logOut()"  routerLink="login">logOut </a>
+              </li>
+          </ul>
+  </div>
+ 
+  </div>
+</nav>
+

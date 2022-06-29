@@ -1,0 +1,78 @@
+
+<!-- (click)="addCategory(salad)" -->
+
+<div class="discover-top-dishes">
+  <h1>Discover Top Dishes</h1>
+   <swiper [slidesPerView]="7" [spaceBetween]="30" [slidesPerGroup]="7" [loop]="true" [loopFillGroupWithBlank]="true"
+   [pagination]="{
+     clickable: true
+   }" [navigation]="true" class="mySwiper best-seller-swiper">
+   <ng-template swiperSlide *ngFor="let bestSellerDish of listOfBestSellerFoodDishes">
+     <div class="top-best-seller-food" (click)="goToProductDetails(bestSellerDish.recipe_id)">
+     <img [src]="bestSellerDish.image_url">
+     </div>
+     <span>{{bestSellerDish.title}}</span>
+   </ng-template>
+ </swiper>
+ </div>
+ <div class="main-section">
+   <div class="filter-section">
+     <h1>Filter</h1>
+     <section class="filter-by-price">
+     <label for="priceRange" class="form-label">Price range:{{priceRange}}</label>
+     <input type="range" class="custom-range form-range" min="15" max="150" step="0.5" id="priceRange" #priceRangeInput (change)="changePriceRange(priceRangeInput.value)">
+   </section>
+   <hr size="3" width="100%">
+   <section class="filter-status">
+     <div class="form-check">
+     <input class="form-check-input" type="radio" name="dish" id="bestSellerDishes" #bestsellerCheckbox (change)="changeDishStstus(bestsellerCheckbox)">
+       <label class="form-check-label" for="bestSellerDishes">
+         Best Seller
+       </label>
+     </div>
+     <div class="form-check">
+       <input class="form-check-input" type="radio" name="dish" id="newDishes" #newCheckbox (change)="changeDishStstus(newCheckbox)">
+       <label class="form-check-label" for="newDishes">
+         New 
+       </label>
+     </div>
+     <div class="form-check">
+       <input class="form-check-input" type="radio" name="dish" id="discountDishes" #discountCheckbox (change)="changeDishStstus(discountCheckbox)">
+       <label class="form-check-label" for="discountDishes">
+         Discounts 
+       </label>
+     </div>
+   </section>
+   </div>
+   <div class="dishes-section" >
+   <div class="card card-container" style="width: 18rem;" *ngFor="let salad of listOfSalad.recipes |filterByStatus:filtarationType:dishStatus |filter: priceRange:'price'"
+     attr.data-recipes-id="{{salad.recipe_id}}" id="{{salad.recipe_id}}">
+     <div class="category-food-image-container">
+       <div class="overlap-view-details-section">
+         <button type="button" (click)="goToProductDetails(salad.recipe_id)">View Details</button>
+       </div>
+       <img [src]="salad.image_url" class="card-img-top" alt="pizza_image">
+     </div>
+     <div class="card-body category-card-body">
+       <div class="card-details">
+         <h6 class="card-title">{{salad.title}}</h6>
+         <div class="price-section">
+           <span [class.canceled-price]="salad.discount>0">{{salad.price | number:'1.2-2' }}EGP</span>
+           <span *ngIf="salad.discount > 0" style="color:#b10707;">{{(salad.price)-(salad.price *
+            salad.discount/100)|number:'1.2-2'}}EGP</span>
+         </div>
+         <span *ngIf="salad.discount > 0" class="discount-badge">{{salad.discount / 100 | percent}}</span>
+         <span *ngIf="salad.newProduct == true" class="new-product-badge"
+           [ngStyle]="{'top':salad.discount > 0 ? '15%':'5%'}">new</span>
+       </div>
+       <div>
+         <button type="button" class="btn" style="background-color:#e32207; color:#FFFFFF;" (click)="addCategory(salad)">Add To Cart</button>
+         <span *ngIf="salad.bestSeller == true" class="best-seller-badge">best seller<img [src]="best_seller_icon"
+             alt="best-seller"></span>
+       </div>
+     </div>
+   </div>
+ </div>
+ </div>
+ 
+ 

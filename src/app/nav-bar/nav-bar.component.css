@@ -1,0 +1,54 @@
+i:hover
+{
+    cursor: pointer;
+    color: orange;
+}
+
+i
+{
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+}
+
+nav 
+{
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    right: 0;
+    left: 0;
+    background-color: #000000e2 !important;
+    color: white;
+}
+nav ul li a
+{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+nav ul li 
+{
+    margin: 0px 20px;
+    padding: 15px 0px;
+}
+
+nav ul li:hover
+
+{
+    
+    background-color:rgb(182, 23, 23) ;
+    color: white;
+}
+.dropdown-menu 
+{
+    background-color: #151616ba;
+    color: white;
+}
+
+.dropdown-menu li a:hover
+{
+    background-color: rgb(182, 23, 23);
+    color: white !important;
+}
+

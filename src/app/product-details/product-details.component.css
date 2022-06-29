@@ -1,0 +1,83 @@
+html,body{
+    height:100%;
+}
+.details-main-container{
+    width:95%;
+    position: relative;
+    /*margin:120px auto 0 auto;
+    */top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+}
+.dish-detail-card{
+    width:100% !important;
+    height:100% !important;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-items: flex-start;
+    border-radius: 5px;
+    border: none;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.dish-details-image-container{
+    width: 360px;
+    height:360px;
+    position: relative;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.dish-details-image-container > img{
+    display: block;
+    width:90%;
+    height:90%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border-radius: 5px;
+}
+.card-body-section{
+    padding:55px;
+}
+.list-of-ingredient > li{
+    text-align: justify;
+    font-size: 1.1rem;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: .5px;
+    word-spacing: 1px;
+    text-transform: capitalize;
+    margin:1px;
+   
+}
+.card-body-section > h5{
+    width:100%;
+    text-align: center;
+    text-transform: capitalize;
+}
+.card-body-section >  span{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    line-height: 1.5;
+    letter-spacing: .5px;
+    word-spacing: 1px;
+    padding-left: 4%;
+}
+.dish-detail-card > div:last-child{
+    width: 100%;
+}
+.dish-detail-card > div > button{
+    width: 130px;
+    float: right;
+    margin-right: 1%;
+    margin-bottom: 1%;
+}

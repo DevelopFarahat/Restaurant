@@ -1,0 +1,55 @@
+h2
+{
+    color: #e32207;
+}
+h5
+{
+    font-weight: 700;
+    font-size: 17px;
+}
+.line
+{
+    background-color: #e32207;
+    height: 1.5px;
+    width: 50px;
+    margin: 10px 0px;
+}
+
+p
+{
+    color: gray;
+    font-size: 18px;
+}
+
+span
+{
+    color: gray;
+    display: block;
+    font-size: 12px;
+}
+span:hover
+{
+    color: #e32207;
+    cursor: pointer;
+}
+
+i:hover
+{
+    cursor: pointer;
+    color: #e32207;
+}
+
+i
+{
+    font-size: 22px;
+}
+
+@media only screen and (max-width: 700px) {
+    .cities  {
+      text-align: center;
+    }
+    .line
+    {
+        display: none;
+    }
+  }

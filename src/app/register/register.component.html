@@ -1,0 +1,67 @@
+<section class="" id="signUp">
+
+<div class="container">
+    <form [formGroup]="registerForm"   class=" w-50 h-50 m-auto ">
+        <div class="row">
+            <div class="col-md-12 my-3">
+                <label for="fullName">Full Name</label>
+                <input [class.is-valid]="user['fullName'].errors== null &&  user['fullName'].touched" class="form-control " type="text" id="fullName" name="txtName" formControlName="fullName">
+               
+                <div *ngIf="user['fullName'].invalid &&  user['fullName'].touched" class="alert alert-danger">
+    
+                    <div *ngIf="user['fullName'].errors?.['required']">Name is required. </div>
+                    <div *ngIf="user['fullName'].errors?.['minlength']"> Name must be at least 3 characters long. </div>
+                    <div *ngIf="user['fullName'].errors?.['maxlength']"> Name must be at max 10 characters long. </div>
+                    <div *ngIf="user['fullName'].errors?.['pattern']"> Name must be FullName have min two Words </div>
+                  
+                    </div>
+            </div>
+      
+       
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" [class.is-invalid]="email?.invalid &&email?.touched" formControlName="email" class="form-control">
+                
+                <div *ngIf="user['email'].invalid &&  user['email'].touched" class="alert alert-danger">
+    
+                    <div *ngIf="user['email'].errors?.['required']">Email is required. </div>
+                    <div *ngIf="user['email'].errors?.['email']"> Email must be at  Example@go.com </div>
+                  
+                  
+                    </div>
+             </div>
+    
+           
+    
+            <div class="col-md-12 my-3">
+                <label for="Password"> Password</label>
+                <input [class.is-valid]="user['password'].errors== null &&  user['password'].touched" class="form-control" type="password" id="Password"  name="txtpassword" formControlName="password">
+            
+                <div *ngIf="user['password'].invalid &&  user['password'].touched" class="alert alert-danger">
+    
+                    <div *ngIf="user['password'].errors?.['required']">Password is required. </div>
+                    <div *ngIf="user['password'].errors?.['pattern']"> Password must be at  6 Number. </div>
+                  
+                  
+                    </div>
+            </div>
+    
+            <div class="col-md-12 my-3">
+                <label for="cPassword">Confirm Password</label>
+                <input [class.is-valid]="user['confirmPassword'].errors== null &&  user['confirmPassword'].touched"  class="form-control" type="password" id="cPassword"  name="txtconfirmPassword" formControlName="confirmPassword">
+          
+                <div *ngIf="user['confirmPassword'].invalid &&  user['confirmPassword'].touched" class="alert alert-danger">
+    
+                    <small class="text-danger" *ngIf="registerForm.errors?.['misMatch']">Password and confirm password must be matched</small>
+                  
+                    </div>
+            </div>
+    
+            
+            
+    
+        </div>
+        <input type="submit" (click)=" register(registerForm)" id="submitbtn" [disabled]="registerForm.invalid" class="btn btn-info w-100">
+    </form>
+</div>
+</section>

@@ -1,0 +1,97 @@
+<!-- <div class="">
+    <img src="../assets/Images/logo.png" class="" width="90" height="90" alt="NotFound" >
+</div> -->
+
+<section class=" cart">
+<div class="container py-4">
+    <div class="row">
+        <div class="col-md-9 ">
+           <div class="row">
+            <div class="col-md-12  ">
+                <div class="header-cart d-flex justify-content-between align-items-center">
+                    <h5>MY CART ( {{categoryList.length}} items )</h5>
+                    <h5 class="more">+ ADD MORE ITEAMS</h5>
+        
+        
+                </div><br>
+            </div>
+    
+            <div class="col-md-12 my-3 content-prod " *ngFor="let pro of categoryList">
+                <div class="row">
+                    <div class="col-md-9  col-sm-12 d-flex justify-content-lg-start align-items-center ">
+                        <div class="py-4">
+                            <img [src]="pro.image_url" alt="NotFound" width="120" height="120" >
+                        </div>
+                        <div class="prod px-3">
+                            <h3>{{pro.title}}</h3>
+                            <p class="text-muted">Handcrafted Sourdough, Medium</p>
+                        </div>
+                    </div>
+    
+                    <div class=" price col-md-3  col-sm-12 text-center pt-3">
+                        <h6>EGP {{pro.price*pro.quntity}}</h6>
+                        <br>
+                        <br>
+                        <div class="icon text-center">
+                            <i *ngIf="pro.quntity > 1" (click)="decrese(pro)"  class="fa-solid fa-minus minus mx-2" ></i>
+                            <i *ngIf="pro.quntity == 1" (click)="deleteCategory(pro)" class="delete fa-solid fa-trash-can mx-2"></i>
+                            <span class="mx-2">{{pro.quntity}}</span>
+                            <i (click)="increse(pro)" class="plus fa-solid fa-plus mx-2"></i>
+                        </div>
+                        
+                    </div>
+           
+                </div>
+            </div>
+
+            
+           </div>
+    
+    
+    
+    
+        </div>
+
+        <div class="col-md-3 content-right col-sm-12 ">
+            <div class="row">
+                <div class="right1 col-md-12 col-sm-12 bg-white  rounded-3">
+                    <div class=" d-flex justify-content-around align-items-center">
+                       <div class=" p-3">
+                        <i class="to fa-solid fa-plus  rounded-pill"></i>
+                        <span class="h6 mx-2" style="font-size: 14px;">Add More Food</span>
+                       </div>
+                        <div class="">
+                            <i class="fa-solid fa-angle-right text-danger"></i>
+                        </div>
+                    </div>
+
+                    <p class="text-muted text-center ">Explore menu to add more food</p>
+                </div>
+
+                <div class="right2 col-md-12 col-sm-12 bg-white  my-3 rounded-3">
+                    <h4 class="py-2">Price Details</h4>
+                    <div class=" d-flex justify-content-between align-items-center">
+                       <div class=" p-3">
+                        <p class="h6">Sub Total</p>
+                        <span>VAT inclusive (14%)</span>
+                       </div>
+                        <div class="">
+                           <p class="h6">EGP {{totalPrice}}</p>
+                           <span>EGP 10.19</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between align-items-center py-3">
+                        <h6>TOTAL</h6>
+                        <h6>EGP {{totalPrice}}</h6>
+                    </div>
+                </div>
+
+                <div class="col-md-12 text-center">
+                    <button routerLink="checkout" class="btn btn-success w-100 m-5" (click)="goToCheckout()">Check Out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>

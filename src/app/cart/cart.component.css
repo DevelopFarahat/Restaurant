@@ -1,0 +1,182 @@
+section
+{
+    background-color: #e6d8d88b;
+    margin-top: 86px;
+    padding:45px;
+}
+
+i
+{
+    cursor: pointer;
+}
+.icon .delete
+{
+    padding: 5px;
+    border: 1px solid black;
+    font-size: 18px;
+    cursor: pointer;
+}
+.icon .plus,.minus
+{
+    padding: 5px;
+    background-color: green;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}
+
+.more
+{
+    color: #e32207;
+    cursor: pointer;
+}
+.content-prod
+{
+    background-color: white;
+    border-radius: 10px;
+}
+
+.content-right .to  
+{
+    border: 1px solid black;
+    padding: 4px;
+    
+}
+
+.content-right span
+{
+    font-size: 9px;
+}
+
+@media only screen and (min-width : 901px)and (max-width : 1800px) {
+   
+
+   .content-right .right1
+   {
+        margin-left: 15%;
+        
+    
+   }
+   .content-right .right2
+   {
+        margin-left: 15%;
+        
+    
+   }
+  }
+
+@media only screen and (max-width: 900px) {
+    .icon  {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+   .price
+   {
+    text-align: center;
+   }
+  
+   .prod h3
+   {
+    font-size: 35px;
+    margin-left: 30px;
+   }
+   .prod p
+   {
+    font-size: 17px;
+    margin-left: 30px;
+   }
+
+   .content-right .right1
+   {
+        margin-left: 30%;
+        
+    
+   }
+   .content-right .right2
+   {
+        margin-left: 30%;
+        
+    
+   }
+  }
+
+@media only screen and (max-width: 800px) {
+    .icon  {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+   .icon i 
+   {
+    margin: 5px 15px;
+   }
+   .prod h3
+   {
+    font-size: 35px;
+    margin-left: 30px;
+   }
+   .prod p
+   {
+    font-size: 17px;
+    margin-left: 30px;
+   }
+
+   .content-right .right1
+   {
+        margin-left: 15%;
+        
+        
+        width:70%;
+    
+   }
+   .content-right .right2
+   {
+    margin-left: 15%;
+        
+        
+    width:70%;
+    
+   }
+
+  }
+
+  @media only screen and (max-width: 799px) {
+    .icon  {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+   .icon i 
+   {
+    margin: 5px 15px;
+   }
+   .prod h3
+   {
+    font-size: 35px;
+    margin-left: 30px;
+   }
+   .prod p
+   {
+    font-size: 17px;
+    margin-left: 30px;
+   }
+
+   .content-right .right1
+   {
+        margin-left: 15%;
+        
+        
+        width:70%;
+    
+   }
+   .content-right .right2
+   {
+    margin-left: 15%;
+        
+        
+    width:70%;
+    
+   }
+
+  }
