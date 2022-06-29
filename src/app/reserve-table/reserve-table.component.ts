@@ -2,8 +2,6 @@ import { IreservedTable } from './../shared/iReservedTable';
 import { DataService } from './../services/data.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ObjectUnsubscribedError } from 'rxjs';
-import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reserve-table',
@@ -45,8 +43,6 @@ export class ReserveTableComponent implements OnInit {
   highTopNumPeopleExist:number;
   outdoorNumPeopleExist:number;
   btnStatus:string;
-  occasionArr:string[];
-  isUserMadeAreservation:boolean;
   @ViewChild('numberOfPeople') numberOfPeople: ElementRef;
   @ViewChild('dateTxt') ReservationDate: ElementRef;
   @ViewChild('appointment') reservationTime: ElementRef;
@@ -59,7 +55,7 @@ export class ReserveTableComponent implements OnInit {
   @ViewChild('mobile') mobile: ElementRef;
   @ViewChild('occasion') occation: ElementRef;
 
-  constructor(private date: DataService,private fb:FormBuilder,private router:Router) {
+  constructor(private date: DataService) {
     this.numOfPepoleArr = [];
     this.timeAvaliableArr = [
       '10:00 PM',
@@ -74,7 +70,7 @@ export class ReserveTableComponent implements OnInit {
     ];
     this.showValidationUi = false;
     this.validationMessage = '';
-    this.warningIcon = '/assets/Images/warning.png';
+    this.warningIcon = '/assets/images/warning.png';
     this.reservedTableList = [];
     this.isThatAppointmentReserved = false;
     this.isUserFoundATable = false;
@@ -93,16 +89,8 @@ export class ReserveTableComponent implements OnInit {
     this.highTopNumPeopleExist = 0;
     this.outdoorMaxCapacity = 0;
     this.btnStatus = '';
-    this.occasionArr = [
-      "None",
-      "birthday",
-      "Anniversary",
-      "Date",
-      "Special Occasion",
-      "Business Meal"
-    ]
 
-    this.isUserMadeAreservation = false;
+
   }
 
   ngOnInit(): void {
@@ -167,8 +155,6 @@ export class ReserveTableComponent implements OnInit {
         });
       });
     //}
-    this.isUserMadeAreservation = true;
-    this.router.navigate(['/']);
   }
 
   getAppointment() {
@@ -204,7 +190,7 @@ export class ReserveTableComponent implements OnInit {
     if (this.validateReservedTableFormInput() == false) {
       if (this.isThatAppointmentReserved == true) {
         this.validationMessage =
-          `This Appointment on  Date: ${new Date(this.ReservationDate.nativeElement.value).toLocaleDateString()} :Time ${this.reservationTime.nativeElement.value} Is Not Avaliable`;
+          'This Appointment Already Reserved ! Please Choose Another';
         this.showValidationUi = true;
         this.isThatAppointmentReserved = false;
       } else {
@@ -229,24 +215,4 @@ export class ReserveTableComponent implements OnInit {
     this.seatingType =  btn.getAttribute("attr.data-seating-type");
     console.log(this.seatingType);
   }
-
-  reserveTableForm = this.fb.group({
-    fName:[,[Validators.required,Validators.pattern(/^[a-z A-Z]{3,}$/)]],
-    lName:[,[Validators.required,Validators.pattern(/^[a-z A-Z]{3,}$/)]],
-    mail:[,[Validators.required,Validators.pattern(/^[A-Z a-z]+[0-9]+@[A-Z a-z]+(.com|.eg)$/)]],
-    mob:[,[Validators.required,Validators.pattern(/^(01)(0|1|2|5)[0-9]{8}$/)]],
-      
-  })
-  get fName(){
-    return this.reserveTableForm.get('fName');
-   }
-   get lName(){
-    return this.reserveTableForm.get('lName');
-   }
-  get mail(){
-    return this.reserveTableForm.get('mail');
-   }
-   get mob(){
-    return this.reserveTableForm.get('mob');
-   }
 }
