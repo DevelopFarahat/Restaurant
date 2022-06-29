@@ -1,7 +1,7 @@
 .table-body {
   width: 100%;
   height: 100%;
-  background-image: url('^/assets/Images/table-bg.png');
+  background-image: url('^/assets/images/table-bg.png');
   background-repeat:repeat;
 }
 
@@ -16,7 +16,6 @@
   width: 55%;
   margin:auto;
   padding:10px;
-  margin-top:86px;
 }
 
 svg {
@@ -132,10 +131,9 @@ ul>li:nth-child(4)>button {
   align-items: center;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  background-color: #E8222D;
 }
 .validation-message > div:nth-child(1){
-  width:10%;
+  width:20%;
   height:100%;
   position: relative;
 }
@@ -146,7 +144,7 @@ ul>li:nth-child(4)>button {
   transform: translate(-50%,-50%);
 }
 .validation-message > div:nth-child(2){
-  width:90%;
+  width:80%;
   height:100%;
   position: relative;
 }
@@ -294,7 +292,4 @@ ul>li:nth-child(4)>button {
   width:90%;
   margin:auto;
   padding:9px 0;
-}
-small{
-  padding-left:11px;
 }
