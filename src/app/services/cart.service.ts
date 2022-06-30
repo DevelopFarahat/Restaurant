@@ -12,7 +12,7 @@ export class CartService {
   addCategory(category:any)
   {
     category.id = this.fs.createId();
-    let ref = this.fs.collection("/UsersBaskets/90z3Cl1wLkBlbOu9HYOn/userBasket").doc(category.id)
+    let ref = this.fs.collection("/userBasket").doc(category.id)
       return ref.set(category)
     
   //  return this.fs.collection("/UsersBaskets/90z3Cl1wLkBlbOu9HYOn/userBasket").add(category)
@@ -20,12 +20,12 @@ export class CartService {
 
   getAllCategory()
 {
-  return this.fs.collection("/UsersBaskets/90z3Cl1wLkBlbOu9HYOn/userBasket").snapshotChanges();
+  return this.fs.collection("/userBasket").snapshotChanges();
 }
 
   deleteCategory(category:any)
   {  
-    let ref = this.fs.collection("/UsersBaskets/90z3Cl1wLkBlbOu9HYOn/userBasket").doc(category.id)
+    let ref = this.fs.collection("/userBasket").doc(category.id)
     
     return ref.delete()
   }
@@ -41,7 +41,7 @@ export class CartService {
 
   updatCategory(category:any)
   {
-    let ref = this.fs.collection("/UsersBaskets/90z3Cl1wLkBlbOu9HYOn/userBasket").doc(category.id)
+    let ref = this.fs.collection("/userBasket").doc(category.id)
     
     return ref.update(category)
   }

@@ -1,12 +1,14 @@
-<div class="table-body" [ngStyle]="{'height':hideSeatingType == true?'100%':'auto'}">
-    
-    <div  [ngClass]="{'reserve-table-main-section-special':(hideSeatingType == false),'reserve-table-main-section':(hideSeatingType == true)}">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 141 32" fill="none" title="OpenTable" aria-label="OpenTable">
+<div class="table-body" [ngStyle]="{'height':hideSeatingType == true?'100vh':'auto'}">
+
+    <div
+        [ngClass]="{'reserve-table-main-section-special':(hideSeatingType == false),'reserve-table-main-section':(hideSeatingType == true)}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 141 32" fill="none" title="OpenTable"
+            aria-label="OpenTable">
             <style>
                 .logo-red {
                     fill: #e32207;
                 }
-    
+
                 .logo-primary {
                     fill: #2D333F
                 }
@@ -23,103 +25,181 @@
         </header>
         <div class="table-content">
             <nav>
-                <span [class.activeTap]="isUserFoundATable == false" (click)="returnToFindATable()" [ngStyle]="{'cursor':isUserFoundATable == true?'pointer':'none'}">1. Find A Table</span>
+                <span [class.activeTap]="isUserFoundATable == false" (click)="returnToFindATable()"
+                    [ngStyle]="{'cursor':isUserFoundATable == true?'pointer':'none'}">1. Find A Table</span>
                 <span [class.activeTap]="isUserFoundATable == true">2. Your Details</span>
             </nav>
             <div *ngIf="isUserFoundATable == false then findTable;else details"></div>
-            <ng-template  #findTable>
+            <ng-template #findTable>
                 <ul>
                     <li>
                         <select class="form-select" #numberOfPeople>
                             <option value="" selected>Select</option>
-                    <option *ngFor="let people of numOfPepoleArr" [value]="people">{{people}}</option>
-                    </select>
-                </li>
+                            <option *ngFor="let people of numOfPepoleArr" [value]="people">{{people}}</option>
+                        </select>
+                    </li>
                     <li>
-                       <input type="date" class="form-control" #dateTxt>
-                </li>
+                        <input type="date" class="form-control" #dateTxt>
+                    </li>
                     <li>
                         <select class="form-select" #appointment>
                             <option value="" selected>Select</option>
-                            <option *ngFor="let time of timeAvaliableArr"[value]="time">{{time}}</option>
-                    </select>
-                </li>
-                <li>
-                    <button type="button" class="btn btn-danger" (click)="getAppointment()">Find A Table</button>
-                </li>
+                            <option *ngFor="let time of timeAvaliableArr" [value]="time">{{time}}</option>
+                        </select>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-danger" (click)="getAppointment()">Find A Table</button>
+                    </li>
                 </ul>
             </ng-template>
             <ng-template #details>
                 <div class="type-of-service-container" *ngIf="hideSeatingType == true">
-                    <a  (click)="returnToFindATable()">Back</a>
+                    <a (click)="returnToFindATable()">Back</a>
                     <h5>Select a seating type</h5>
                     <ul>
-                        <li><span>Standard</span><button class="btn btn-danger" #standeredBtn [disabled]="isStanderedSeatingreachedMaximumCapacity == true" [ngStyle]="{'color':isStanderedSeatingreachedMaximumCapacity == true?'rgb(111, 115, 123)':'#FFFFFF','border':isStanderedSeatingreachedMaximumCapacity == true?'none':'','background-color':isStanderedSeatingreachedMaximumCapacity == true?'rgb(216, 217, 219)':'#e32207'}"   attr.data-seating-type="standard"(click)="hideSeatingTypeDetails(standeredBtn)" [innerHTML]="isStanderedSeatingreachedMaximumCapacity == true?'unavailable':'Select'">Select</button></li>
-                        <li><span>High Top</span><button class="btn btn-danger" #highTopBtn [disabled]="ishighTopSeatingreachedMaximumCapacity == true" [ngStyle]="{'color':ishighTopSeatingreachedMaximumCapacity == true?'rgb(111, 115, 123)':'#FFFFFF','border':ishighTopSeatingreachedMaximumCapacity == true?'none':'','background-color':ishighTopSeatingreachedMaximumCapacity == true?'rgb(216, 217, 219)':'#e32207'}" attr.data-seating-type="high Top" (click)="hideSeatingTypeDetails(highTopBtn)" [innerHTML]="ishighTopSeatingreachedMaximumCapacity == true?'unavailable':'Select'">Select</button></li>
-                        <li><span>Outdoor</span><button class="btn btn-danger" #outdoorBtn [disabled]="isOutdoorSeatingreachedMaximumCapacity == true" [ngStyle]="{'color':isOutdoorSeatingreachedMaximumCapacity == true?'rgb(111, 115, 123)':'#FFFFFF','border':isOutdoorSeatingreachedMaximumCapacity == true?'none':'','background-color':isOutdoorSeatingreachedMaximumCapacity == true?'rgb(216, 217, 219)':'#e32207'}" attr.data-seating-type="outdoor" (click)="hideSeatingTypeDetails(outdoorBtn)" [innerHTML]="isOutdoorSeatingreachedMaximumCapacity == true?'unavailable':'Select'">Select</button></li>
+                        <li><span>Standard</span><button class="btn btn-danger" #standeredBtn
+                                [disabled]="isStanderedSeatingreachedMaximumCapacity == true"
+                                [ngStyle]="{'color':isStanderedSeatingreachedMaximumCapacity == true?'rgb(111, 115, 123)':'#FFFFFF','border':isStanderedSeatingreachedMaximumCapacity == true?'none':'','background-color':isStanderedSeatingreachedMaximumCapacity == true?'rgb(216, 217, 219)':'#e32207'}"
+                                attr.data-seating-type="standard" (click)="hideSeatingTypeDetails(standeredBtn)"
+                                [innerHTML]="isStanderedSeatingreachedMaximumCapacity == true?'unavailable':'Select'">Select</button>
+                        </li>
+                        <li><span>High Top</span><button class="btn btn-danger" #highTopBtn
+                                [disabled]="ishighTopSeatingreachedMaximumCapacity == true"
+                                [ngStyle]="{'color':ishighTopSeatingreachedMaximumCapacity == true?'rgb(111, 115, 123)':'#FFFFFF','border':ishighTopSeatingreachedMaximumCapacity == true?'none':'','background-color':ishighTopSeatingreachedMaximumCapacity == true?'rgb(216, 217, 219)':'#e32207'}"
+                                attr.data-seating-type="high Top" (click)="hideSeatingTypeDetails(highTopBtn)"
+                                [innerHTML]="ishighTopSeatingreachedMaximumCapacity == true?'unavailable':'Select'">Select</button>
+                        </li>
+                        <li><span>Outdoor</span><button class="btn btn-danger" #outdoorBtn
+                                [disabled]="isOutdoorSeatingreachedMaximumCapacity == true"
+                                [ngStyle]="{'color':isOutdoorSeatingreachedMaximumCapacity == true?'rgb(111, 115, 123)':'#FFFFFF','border':isOutdoorSeatingreachedMaximumCapacity == true?'none':'','background-color':isOutdoorSeatingreachedMaximumCapacity == true?'rgb(216, 217, 219)':'#e32207'}"
+                                attr.data-seating-type="outdoor" (click)="hideSeatingTypeDetails(outdoorBtn)"
+                                [innerHTML]="isOutdoorSeatingreachedMaximumCapacity == true?'unavailable':'Select'">Select</button>
+                        </li>
                     </ul>
                 </div>
-                
+
                 <div class="client-info-container" *ngIf="hideSeatingType == false">
-                    <form>
-                    <div class="client-personal-info">
-                       
-                        <input type="text" class="form-control" placeholder="First Name" #firstname>
-                        <input type="text" class="form-control" placeholder="Last Name" #lastName>
-                        <input type="text" class="form-control" placeholder="Phone Number" #mobile>
-                        <input type="email" class="form-control" placeholder="Email" #email>
-                        <select class="form-select" placeholder="Select An Occasion (Optinal)" #occasion>
-                            <option value="">None</option>
-                            <option value="birthday">Birthday</option>
-                            <option value="Anniversary">Anniversary</option>
-                            <option value="Date">Date</option>
-                            <option value="Special Occasion">Special Occasion</option>
-                            <option value="Business Meal">Business Meal</option>
-                        </select>
-                  
-                    </div>
-                    <div class="system-info">
-                        <div class="resturant-details">
-                            <h5>Stiltsville Fish Bar</h5>
-                            <ul>
-                                <li>
-                                <span><svg viewBox="0 0 19 18" xmlns="http://www.w3.org/2000/svg" class="styled__CalendarIcon-zx76v7-5 bccPCo"><g transform="translate(-2 -3)" fill="none" fill-rule="evenodd"><path d="M0 0h23.914591v24H0z"></path><rect stroke="#333" stroke-width="2" x="3.989324" y="6" width="15.935943" height="14" rx="2"></rect><path fill="#333" d="M2.989324 9h17.935943v2H2.989324z"></path><rect fill="#333" x="6.975089" y="3" width="1.992883" height="4" rx="0.996441"></rect><rect fill="#333" x="14.946619" y="3" width="1.992883" height="4" rx="0.996441"></rect></g></svg></span>
-                                <span>{{rDate}}</span>
-                            </li>
-                                <li>
-                                <span><svg width="20" height="20" viewBox="3 3 18 18" xmlns="http://www.w3.org/2000/svg" fill="#333" class="styled__ClockIcon-zx76v7-6 EKOzd"><path d="M13 11h1.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5V11zm-1 10a9 9 0 1 1 0-18 9 9 0 0 1 0 18zm0-2a7 7 0 1 0 0-14 7 7 0 0 0 0 14z"></path></svg></span>
-                                <span>{{rTime}}</span>
-                                </li>
-                                <li>
-                                <span><svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" class="styled__PersonIcon-zx76v7-7 bwRiql"><g fill="none" fill-rule="evenodd"><path d="M-3-3h24v24H-3z"></path><g transform="translate(1 1)" stroke="#333" stroke-width="2"><path d="M15.570692 14.739444C14.523244 10.858251 12.074936 9 8 9 3.925059 9 1.476751 10.858254.429308 14.739446c-.143896.53321.1717 1.082114.704904 1.226013A.99999.99999 0 0 0 1.394764 16l13.21047-.000001c.552284 0 .999999-.447715.999999-.999999a.999997.999997 0 0 0-.034541-.260556z"></path><rect x="4" width="8" height="8" rx="4"></rect></g></g></svg></span>
-                                <span>{{numOfPeople}}( {{seatingType}})</span>
-                                </li>
-                            </ul>
-                        <hr size="2" style="width:90%;margin:auto;border:1px solid #dadada;">
-                        <div class="more-info-about-resturant">
-                            <h5>What to know before you go</h5>
-                            <p>Important dining information
-                                We have a 15 minute grace period. Please call us if you are running later than 15 minutes after your reservation time.</p>
-                            <p>Your table will be reserved for 1 hour 30 minutes for parties of up to 2; 1 hour 45 minutes for parties of up to 4; 2 hours for parties of up to 6; and 2 hours 30 minutes for parties of 7+.</p>
-                            <p>A note from the restaurant
-                                Thank you for choosing to dine at Stiltsville Fish Bar. We are located in Sunset Harbour on Purdy Avenue. A public parking lot can be found across the restaurant and there is also a parking garage on Bay Road. We ask that you cancel 24 hours prior to your reservation and should your plans change, please call us at 786-353-0477. We look forward to serving you!</p>
+                    <form method="get"  [formGroup]="reserveTableForm" novalidate>
+                        <div class="client-personal-info">
+
+                            <input type="text" class="form-control" placeholder="First Name" #firstname
+                                [class.is-invalid]="fName?.invalid && fName?.touched" formControlName="fName">
+                            <div *ngIf="fName?.invalid &&fName?.touched">
+                                <small class="text-danger" *ngIf="fName?.errors?.['required']">Firstname is
+                                    required</small>
+                                <small class="text-danger" *ngIf="fName?.errors?.['pattern']">FirstName must be only
+                                    characters</small>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Last Name" #lastName
+                                [class.is-invalid]="lName?.invalid && lName?.touched" formControlName="lName">
+                            <div *ngIf="lName?.invalid &&lName?.touched">
+                                <small class="text-danger" *ngIf="lName?.errors?.['required']">Lastname is
+                                    required</small>
+                                <small class="text-danger" *ngIf="lName?.errors?.['pattern']">Lastname must be only
+                                    characters</small>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Phone Number" #mobile
+                                [class.is-invalid]="mob?.invalid && mob?.touched" formControlName="mob">
+                            <div *ngIf="mob?.invalid &&mob?.touched">
+                                <small class="text-danger" *ngIf="mob?.errors?.['required']">Mobile is required</small>
+                                <small class="text-danger" *ngIf="mob?.errors?.['pattern']">Mobile must be digits only
+                                    and must start with 01</small>
+                            </div>
+                            <input type="email" class="form-control" placeholder="Email" #email
+                                [class.is-invalid]="mail?.invalid && mail?.touched" formControlName="mail">
+                            <div *ngIf="mail?.invalid &&mail?.touched">
+                                <small class="text-danger" *ngIf="mail?.errors?.['required']">Email is required</small>
+                                <small class="text-danger" *ngIf="mail?.errors?.['pattern']">Email Must containing
+                                    characters digits and (@)</small>
+                            </div>
+                            <select class="form-select" id="fSelect" name="occation-form-select" #occasion>
+                                <option value="" selected>Select an occasion (optional)</option>
+                                <option [value]="occa" *ngFor="let occa of occasionArr">{{occa}}</option>
+                            </select>
                         </div>
+                        <div class="system-info">
+                            <div class="resturant-details">
+                                <h5>Stiltsville Fish Bar</h5>
+                                <ul>
+                                    <li>
+                                        <span><svg viewBox="0 0 19 18" xmlns="http://www.w3.org/2000/svg"
+                                                class="styled__CalendarIcon-zx76v7-5 bccPCo">
+                                                <g transform="translate(-2 -3)" fill="none" fill-rule="evenodd">
+                                                    <path d="M0 0h23.914591v24H0z"></path>
+                                                    <rect stroke="#333" stroke-width="2" x="3.989324" y="6"
+                                                        width="15.935943" height="14" rx="2"></rect>
+                                                    <path fill="#333" d="M2.989324 9h17.935943v2H2.989324z"></path>
+                                                    <rect fill="#333" x="6.975089" y="3" width="1.992883" height="4"
+                                                        rx="0.996441"></rect>
+                                                    <rect fill="#333" x="14.946619" y="3" width="1.992883" height="4"
+                                                        rx="0.996441"></rect>
+                                                </g>
+                                            </svg></span>
+                                        <span>{{rDate}}</span>
+                                    </li>
+                                    <li>
+                                        <span><svg width="20" height="20" viewBox="3 3 18 18"
+                                                xmlns="http://www.w3.org/2000/svg" fill="#333"
+                                                class="styled__ClockIcon-zx76v7-6 EKOzd">
+                                                <path
+                                                    d="M13 11h1.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5V11zm-1 10a9 9 0 1 1 0-18 9 9 0 0 1 0 18zm0-2a7 7 0 1 0 0-14 7 7 0 0 0 0 14z">
+                                                </path>
+                                            </svg></span>
+                                        <span>{{rTime}}</span>
+                                    </li>
+                                    <li>
+                                        <span><svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg"
+                                                class="styled__PersonIcon-zx76v7-7 bwRiql">
+                                                <g fill="none" fill-rule="evenodd">
+                                                    <path d="M-3-3h24v24H-3z"></path>
+                                                    <g transform="translate(1 1)" stroke="#333" stroke-width="2">
+                                                        <path
+                                                            d="M15.570692 14.739444C14.523244 10.858251 12.074936 9 8 9 3.925059 9 1.476751 10.858254.429308 14.739446c-.143896.53321.1717 1.082114.704904 1.226013A.99999.99999 0 0 0 1.394764 16l13.21047-.000001c.552284 0 .999999-.447715.999999-.999999a.999997.999997 0 0 0-.034541-.260556z">
+                                                        </path>
+                                                        <rect x="4" width="8" height="8" rx="4"></rect>
+                                                    </g>
+                                                </g>
+                                            </svg></span>
+                                        <span>{{numOfPeople}}( {{seatingType}})</span>
+                                    </li>
+                                </ul>
+                                <hr size="2" style="width:90%;margin:auto;border:1px solid #dadada;">
+                                <div class="more-info-about-resturant">
+                                    <h5>What to know before you go</h5>
+                                    <p>Important dining information
+                                        We have a 15 minute grace period. Please call us if you are running later than
+                                        15 minutes after your reservation time.</p>
+                                    <p>Your table will be reserved for 1 hour 30 minutes for parties of up to 2; 1 hour
+                                        45 minutes for parties of up to 4; 2 hours for parties of up to 6; and 2 hours
+                                        30 minutes for parties of 7+.</p>
+                                    <p>A note from the restaurant
+                                        Thank you for choosing to dine at Stiltsville Fish Bar. We are located in Sunset
+                                        Harbour on Purdy Avenue. A public parking lot can be found across the restaurant
+                                        and there is also a parking garage on Bay Road. We ask that you cancel 24 hours
+                                        prior to your reservation and should your plans change, please call us at
+                                        786-353-0477. We look forward to serving you!</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <button type="button" class="btn btn-success" (click)="addReservedTable()">Confirm Reservation</button>
+                        <button type="button" class="btn btn-success" (click)="addReservedTable()"
+                            [class.btn-dark]="reserveTableForm.invalid"
+                            [ngStyle]="{'cursor':reserveTableForm.invalid?'not-allowed':'pointer','opacity':reserveTableForm.invalid?'.3':'1'}">Confirm
+                            Reservation</button>
+
                     </form>
                 </div>
+
             </ng-template>
-        
+
         </div>
-        <div class="validation-message bg-danger" *ngIf="showValidationUi == true">
+        <div class="validation-message" *ngIf="showValidationUi == true">
             <div>
                 <img [src]="warningIcon" alt="warningIcon">
             </div>
             <div class="error-message-container">
                 <p>{{validationMessage}}</p>
             </div>
-        
+
         </div>
     </div>
 
