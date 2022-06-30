@@ -25,9 +25,12 @@ export class CartService {
 
   deleteCategory(category:any)
   {  
+    /*
     let ref = this.fs.collection("/userBasket").doc(category.id)
     
     return ref.delete()
+    */
+   return this.fs.doc('/userBasket/'+category.id).delete();
   }
 
 
